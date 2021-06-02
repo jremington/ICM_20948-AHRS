@@ -1,6 +1,6 @@
-# LSM9DS1-AHRS
+# ICM_90248-AHRS
 
-Mahony AHRS and Tilt Compensated Compass for Arduino and the LSM9DS1 sensor, written and tested for the Adafruit LSM9DS1 breakout board, using I2C connection on an Arduino Pro Mini.
+Mahony AHRS and Tilt Compensated Compass for Arduino and the ICM_90248 sensor, written and tested for the Sparkfun breakout board, using I2C connection on an Arduino Pro Mini.
 
 **UPDATE March 2021: a new Mahony filter is implemented**, which uses as reference directions **Up** and **West** (acceleration vector cross magnetic field vector), instead of using the unmodified direction of the Earth's magnetic field. It appears to converge more rapidly than the conventional Mahony approach (as coded by SOH Madgwick), presumably because the reference vectors are orthogonal. See **MahonyUW_AHRS.ino**.
 
@@ -8,15 +8,15 @@ Standard sensor orientation for Mahony fusion filter (Tait-Bryan angles) is X No
 
 Standard orientation for the tilt-compensated compass: marked Y axis points True North.  Correction for the local magnetic declination is included in the code and must be changed to the user's location. One can also change the "North" or Yaw=0 definition by changing the facing vector p in the code.
 
-Note that in both cases above, **the X-axis is reflected as required to form a right handed coordinate system**. For the 3D fusion filter, North is OPPOSITE to the direction of the "X arrow" on the Adafruit breakout board.
+For the 3D fusion filter, North is the direction of the Accelerometer "X arrow" on the Sparkfun breakout board.
 
-The Sparkfun LSM9DS1 Arduino library is required. Only the default settings and raw sensor data are used.
+The Sparkfun ICM_90248 Arduino library is required. Only the default settings and raw sensor data are used.
 
 The currently implemented AHRS algorithm is the standard Madgwick/Mahony scheme found in other repositories. However, new features have been added, such as code to simplify accurate calibration of the accelerometer, magnetometer and gyro. The magnetometer and accelerometer axes are realigned so that the output orientation is meaningful, and to simplify overall operation. 
 
 SENSOR CALIBRATION
 
-Gyro, magnetometer and accelerometer calibration is required, for each sensor individually. The Arduino program LSM9DS1_cal_data.ino collects gyro data and calculates the gyro offset (while the sensor is held still), then collects about 300 accelerometer and magnetometer data points, while the user slowly and carefully rotates the sensor in 3D.
+Gyro, magnetometer and accelerometer calibration is required, for each sensor individually. The Arduino program LSM9DS1_cal_data.ino collects gyro data and calculates the gyro offset (while the sensor is held still), then collects 300 accelerometer and magnetometer data points, while the user slowly and carefully rotates the sensor in 3D.
 
 You need to cut/paste/copy the output data on the serial monitor, then create two separate comma separated value (.csv) file, one each for the magnetometer and accelerometer x,y,z values, and use them for the final calibration steps.
 
