@@ -43,7 +43,7 @@ ICM_20948_I2C imu; // create an ICM_20948_I2C object imu;
 //The compass will NOT work well or at all if these are not correct
 
 //Gyro default scale 250 dps. Convert to radians/sec subtract offsets
-float Gscale = (M_PI / 180.0) * 0.00763; //250 dps scale sensitivity = 131 dps/LSB
+float Gscale = (M_PI / 180.0) * 0.00763; //250 dps scale, sensitivity = 131 LSB/dps
 float G_offset[3] = {74.3, 153.8, -5.5};
 
 //Accel scale: divide by 16604.0 to normalize
