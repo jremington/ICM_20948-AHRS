@@ -26,7 +26,7 @@
 //////////////////////////
 // ICM_20948 Library Init //
 //////////////////////////
-// default settings for accel and magnetometer
+// default settings for accel and magnetometer 
 
 #define WIRE_PORT Wire // desired Wire port.
 #define AD0_VAL 1      // value of the last bit of the I2C address.
