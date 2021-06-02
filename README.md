@@ -1,6 +1,6 @@
 # ICM_90248-AHRS
 
-Mahony AHRS and Tilt Compensated Compass for Arduino and the ICM_90248 sensor, written and tested for the Sparkfun breakout board, using I2C connection on an Arduino Pro Mini.
+Mahony AHRS 3D Fusion Filter and Tilt Compensated Compass for Arduino and the ICM_90248 sensor, written and tested for the Sparkfun breakout board, using I2C connection on an Arduino Pro Mini.
 
 **UPDATE March 2021: a new Mahony filter is implemented**, which uses as reference directions **Up** and **West** (acceleration vector cross magnetic field vector), instead of using the unmodified direction of the Earth's magnetic field. It appears to converge more rapidly than the conventional Mahony approach (as coded by SOH Madgwick), presumably because the reference vectors are orthogonal. See **MahonyUW_AHRS.ino**.
 
