@@ -31,7 +31,7 @@
 #define WIRE_PORT Wire // desired Wire port.
 #define AD0_VAL 1      // value of the last bit of the I2C address.
 // On the SparkFun 9DoF IMU breakout the default is 1, and when
-// the ADR jumper is closed the value becomes 0
+// the ADR jumper is closed the value becomes 0 
 
 ICM_20948_I2C imu; // create an ICM_20948_I2C object imu;
 
