@@ -12,7 +12,7 @@ For the 3D fusion filter, North is the direction of the Accelerometer "X arrow" 
 
 The Sparkfun ICM_90248 Arduino library is required. Only the default settings and raw sensor data are used.
 
-The currently implemented AHRS algorithm is the standard Madgwick/Mahony scheme found in other repositories. However, new features have been added, such as code to simplify accurate calibration of the accelerometer, magnetometer and gyro. The magnetometer and accelerometer axes are realigned so that the output orientation is meaningful, and to simplify overall operation. 
+The currently implemented AHRS algorithm is BASED on the standard Madgwick/Mahony scheme found in other repositories. However, new features have been added, such as code to simplify accurate calibration of the accelerometer, magnetometer and gyro. The magnetometer and accelerometer axes are realigned so that the output orientation is meaningful, and to simplify overall operation. 
 
 SENSOR CALIBRATION
 
