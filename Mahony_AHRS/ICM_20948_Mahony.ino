@@ -43,7 +43,7 @@ ICM_20948_I2C imu; // create an ICM_20948_I2C object imu;
 //The compass will NOT work well or at all if these are not correct
 
 //Gyro default scale 250 dps. Convert to radians/sec subtract offsets
-float Gscale = (M_PI / 180.0) * 0.00763; //250 dps scale, sensitivity = 131 LSB/dps
+float Gscale = (M_PI / 180.0) * 0.00763; //250 dps scale sensitivity = 131 dps/LSB
 float G_offset[3] = {74.3, 153.8, -5.5};
 
 //Accel scale: divide by 16604.0 to normalize
@@ -71,7 +71,7 @@ float declination = -14.84;
 
 // These are the free parameters in the Mahony filter and fusion scheme,
 // Kp for proportional feedback, Ki for integral
-// Kp is not yet optimized. Ki is not used.
+// Kp is not yet optimized (slight overshoot apparent after rapid sensor reorientations). Ki is not used.
 #define Kp 50.0
 #define Ki 0.0
 
@@ -88,7 +88,7 @@ static float yaw, pitch, roll; //Euler angle output
 
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial); //wait for connection
   WIRE_PORT.begin();
   WIRE_PORT.setClock(400000);
@@ -118,25 +118,7 @@ void loop()
 
     Mxyz[1] = -Mxyz[1]; //reflect Y and Z
     Mxyz[2] = -Mxyz[2]; //must be done after offsets & scales applied to raw data
-    /* debug print
-        Serial.print(Gxyz[0]);
-        Serial.print(", ");
-        Serial.print(Gxyz[1]);
-        Serial.print(", ");
-        Serial.print(Gxyz[2]);
-        Serial.print(", ");
-        Serial.print(Axyz[0]);
-        Serial.print(", ");
-        Serial.print(Axyz[1]);
-        Serial.print(", ");
-        Serial.print(Axyz[2]);
-        Serial.print(", ");
-        Serial.print(Mxyz[0]);
-        Serial.print(", ");
-        Serial.print(Mxyz[1]);
-        Serial.print(", ");
-        Serial.println(Mxyz[2]);
-    */
+
     now = micros();
     deltat = (now - last) * 1.0e-6; //seconds since last update
     last = now;
@@ -174,14 +156,14 @@ void loop()
       if (yaw < 0) yaw += 360.0;
       if (yaw >= 360.0) yaw -= 360.0;
 
-      Serial.print("ypr ");
+      //     Serial.print("ypr ");
       Serial.print(yaw, 0);
       Serial.print(", ");
       Serial.print(pitch, 0);
       Serial.print(", ");
       Serial.print(roll, 0);
-      //      Serial.print(", ");  //prints 24 in 300 ms (80 Hz) with 16 MHz ATmega328
-      //      Serial.print(loop_counter);  //sample & update loops per print interval
+      //          Serial.print(", ");  //prints 49 in 300 ms (~160 Hz) with 8 MHz ATmega328
+      //          Serial.print(loop_counter);  //sample & update loops per print interval
       loop_counter = 0;
       Serial.println();
       lastPrint = millis(); // Update lastPrint time
@@ -230,7 +212,7 @@ void get_scaled_IMU(float Gxyz[3], float Axyz[3], float Mxyz[3]) {
 
   //apply mag offsets (bias) and scale factors from Magneto
 
-  for (int i = 0; i < 3; i++) temp[i] = (Mxyz[i] - M_B[i]);
+  for (i = 0; i < 3; i++) temp[i] = (Mxyz[i] - M_B[i]);
   Mxyz[0] = M_Ainv[0][0] * temp[0] + M_Ainv[0][1] * temp[1] + M_Ainv[0][2] * temp[2];
   Mxyz[1] = M_Ainv[1][0] * temp[0] + M_Ainv[1][1] * temp[1] + M_Ainv[1][2] * temp[2];
   Mxyz[2] = M_Ainv[2][0] * temp[0] + M_Ainv[2][1] * temp[1] + M_Ainv[2][2] * temp[2];
