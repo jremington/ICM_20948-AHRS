@@ -49,7 +49,7 @@ float A_Ainv[3][3]
   { -0.00428, -0.00328,  0.99559}
 };
 
-//Mag scale divide by 369.4 to normalize
+//Mag scale divide by 369.4 to normalize. These are significant corrections, especially the large offsets.
 float M_B[3]
 { -156.70,  -52.79, -141.07};
 
