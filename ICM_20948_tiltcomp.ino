@@ -2,7 +2,7 @@
 // Tilt compensated compass  S.J. Remington 2/2021
 // Requires the Sparkfun ICM_20948 library
 
-// Both the accelerometer and magnetometer MUST be properly calibrated for this program to work.
+// The magnetometer MUST be properly calibrated for this program to work.
 // Follow the procedure described in http://sailboatinstruments.blogspot.com/2011/08/improved-magnetometer-calibration.html
 // or in more detail, the tutorial https://thecavepearlproject.org/2015/05/22/calibrating-any-compass-or-accelerometer-for-arduino/
 //
@@ -39,7 +39,7 @@ ICM_20948_I2C imu; // create an ICM_20948_I2C object imu;
 //These are the previously determined offsets and scale factors for accelerometer and magnetometer, using ICM_20948_cal and Magneto
 //The compass will NOT work well or at all if these are not correct
 
-//Accel scale: divide by 16604.0 to normalize
+//Accel scale: divide by 16604.0 to normalize. These corrections are quite small and probably can be ignored.
 float A_B[3]
 {   79.60,  -18.56,  383.31};
 
