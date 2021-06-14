@@ -1,4 +1,4 @@
-// This demo version extracts the "gravity" reference vector in the IMU frame of reference, as global variabls gux,guy, guz
+// This demo version extracts and prints the "gravity" reference vector in the IMU frame of reference, as global variables gux,guy, guz
 // Mahony AHRS for the ICM_20948  S.J. Remington 6/2021
 // Requires the Sparkfun ICM_20948 library
 // Standard sensor orientation X North (yaw=0), Y West, Z up
