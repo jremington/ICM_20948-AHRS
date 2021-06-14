@@ -157,13 +157,13 @@ void loop()
       if (yaw < 0) yaw += 360.0;
       if (yaw >= 360.0) yaw -= 360.0;
 
-      //     Serial.print("ypr ");
+      Serial.print("ypr ");
       Serial.print(yaw, 0);
       Serial.print(", ");
       Serial.print(pitch, 0);
       Serial.print(", ");
       Serial.print(roll, 0);
-      Serial.print(", ");
+      Serial.print(", G: ");
       Serial.print(gux, 3);
       Serial.print(", ");
       Serial.print(guy, 3);
