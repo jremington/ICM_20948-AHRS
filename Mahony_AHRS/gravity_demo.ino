@@ -142,6 +142,10 @@ void loop()
       //
       // http://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles
       // which has additional links.
+       
+      // WARNING: This angular conversion is for DEMONSTRATION PURPOSES ONLY. It WILL
+      // MALFUNCTION for certain combinations of angles! See https://en.wikipedia.org/wiki/Gimbal_lock
+      
       roll  = atan2((q[0] * q[1] + q[2] * q[3]), 0.5 - (q[1] * q[1] + q[2] * q[2]));
       pitch = asin(2.0 * (q[0] * q[2] - q[1] * q[3]));
       yaw   = atan2((q[1] * q[2] + q[0] * q[3]), 0.5 - ( q[2] * q[2] + q[3] * q[3]));
