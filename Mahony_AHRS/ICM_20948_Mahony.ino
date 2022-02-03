@@ -129,7 +129,8 @@ void loop()
 
     if (millis() - lastPrint > PRINT_SPEED) {
 
-      // Define Tait-Bryan angles.
+      // Define Tait-Bryan angles. Strictly valid only for approximately level movement
+      
       // Standard sensor orientation : X magnetic North, Y West, Z Up (NWU)
       // this code corrects for magnetic declination.
       // Pitch is angle between sensor x-axis and Earth ground plane, toward the
