@@ -315,9 +315,9 @@ void MahonyQuaternionUpdate(float ax, float ay, float az, float gx, float gy, fl
 gx = gx * (0.5*deltat); // pre-multiply common factors
 gy = gy * (0.5*deltat);
 gz = gz * (0.5*deltat);
-qa = q1;
-qb = q2;
-qc = q3;
+float qa = q1;
+float qb = q2;
+float qc = q3;
 q1 += (-qb * gx - qc * gy - q4 * gz);
 q2 += (qa * gx + qc * gz - q4 * gy);
 q3 += (qa * gy - qb * gz + q4 * gx);
