@@ -1,4 +1,4 @@
-# ICM_90248-AHRS
+# ICM_20948-AHRS
 
 Mahony AHRS 3D Fusion Filter and Tilt Compensated Compass for Arduino and the ICM_90248 sensor, written and tested for the Sparkfun breakout board, using I2C connection on an Arduino Pro Mini.
 
