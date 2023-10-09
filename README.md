@@ -2,6 +2,12 @@
 
 Mahony AHRS 3D Fusion Filter and Tilt Compensated Compass for Arduino and the ICM_90248 sensor, written and tested for the Sparkfun breakout board, using I2C connection on an Arduino Pro Mini.
 
+**UPDATE October 2023: Python code for calibrating magnetometer and accelerometer added**, which optionally replaces Magneto. The results are identical with the two methods.
+
+ references :
+    -  https://teslabs.com/articles/magnetometer-calibration/      
+    -  https://github.com/nliaudat/magnetometer_calibration/blob/main/calibrate.py
+
 **UPDATE March 2021: a new Mahony filter is implemented**, which uses as reference directions **Up** and **West** (acceleration vector cross magnetic field vector), instead of using the unmodified direction of the Earth's magnetic field. It appears to converge more rapidly than the conventional Mahony approach (as coded by SOH Madgwick), presumably because the reference vectors are orthogonal.
 
 Standard sensor orientation for Mahony fusion filter (and Tait-Bryan angles) is X North (yaw=0) Y West and Z Up (NWU system). 
