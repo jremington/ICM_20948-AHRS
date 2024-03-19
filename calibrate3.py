@@ -81,7 +81,7 @@ class Magnetometer(object):
         np.savetxt('out.txt', result, fmt='%f', delimiter=' ,')
 
         print("*************************" )        
-        print("code to paste : " )
+        print("code to paste (edits required) : " )
         print("*************************" )
         self.b = np.round(self.b,2)
         print("float B[3] = {", self.b[0],",", self.b[1],",", self.b[2],"};")
