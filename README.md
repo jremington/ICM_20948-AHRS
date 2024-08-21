@@ -44,6 +44,6 @@ A detailed example of using the above procedures in a particularly difficult cas
 
 https://forum.pololu.com/t/correcting-the-balboa-magnetometer/14315
 
-## OUTPUT of calibrate3.py using as input mag3_raw.csv
+**Plot output of calibrate3.py using example raw data file mag3_raw.csv**
 
 ![mag3_raw](https://github.com/user-attachments/assets/76de046c-3652-4cd4-a956-cd1bb85dcd20)
