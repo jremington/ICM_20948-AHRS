@@ -2,7 +2,7 @@
 
 Mahony AHRS 3D Fusion Filter and Tilt Compensated Compass for Arduino and the ICM_90248 sensor, written and tested for the Sparkfun breakout board, using I2C connection on an Arduino Pro Mini.
 
-**UPDATE October 2023: Python code for calibrating magnetometer and accelerometer added**, which optionally replaces Magneto. The results are identical with the two methods.
+**UPDATE October 2023: Python code for calibrating magnetometer and accelerometer added**, which optionally replaces Magneto. The results are identical with the two methods. See bottom of this README page for the plot resulting from running calibrate3.py on the included "mag3_raw.csv" example magnetometer data.
 
  references :
     -  https://teslabs.com/articles/magnetometer-calibration/      
@@ -43,3 +43,7 @@ The magneto program was modified to add measurement rejection criteria and to pu
 A detailed example of using the above procedures in a particularly difficult case, with severe "hard iron" distortion can be found at 
 
 https://forum.pololu.com/t/correcting-the-balboa-magnetometer/14315
+
+## OUTPUT of calibrate3.py using as input mag3_raw.csv
+
+![mag3_raw](https://github.com/user-attachments/assets/76de046c-3652-4cd4-a956-cd1bb85dcd20)
