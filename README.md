@@ -1,6 +1,6 @@
 # ICM_20948-AHRS
 
-Mahony AHRS 3D Fusion Filter and Tilt Compensated Compass for Arduino and the ICM_90248 sensor, written and tested for the Sparkfun breakout board, using I2C connection on an Arduino Pro Mini.
+Mahony AHRS 3D Fusion Filter and Tilt Compensated Compass for Arduino and the ICM-20948 sensor, written and tested for the Sparkfun breakout board, using I2C connection on an Arduino Pro Mini.
 
 **UPDATE October 2023: Python code for calibrating magnetometer and accelerometer added**, which optionally replaces Magneto. The results are identical with the two methods. See bottom of this README page for the plot resulting from running calibrate3.py on the included "mag3_raw.csv" example magnetometer data.
 
